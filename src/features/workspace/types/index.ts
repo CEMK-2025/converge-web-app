@@ -43,3 +43,28 @@ export interface User {
     message: string;
     status?: number;
   }
+
+  export interface CreateWorkspaceData {
+    name: string;
+    description?: string;
+  }
+  
+  export interface WorkspaceResponse {
+    message: string;
+    workspace: {
+      id: number;
+      name: string;
+      description?: string;
+      createdAt: Date;
+    };
+  }
+
+  export interface Channel {
+    id: number;
+    name: string;
+    type: 'public' | 'private';
+    workspaceId: number;
+    createdAt: Date;
+    updatedAt: Date;
+    members: User[];
+  }
